@@ -1,9 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Voting where
+module Voting (main) where
 
 import Control.Monad (replicateM)
-import System.Random
+import System.Random (randomRIO)
 
 -- Data types equivalent to Rust structs
 data Person = Person
@@ -39,11 +39,11 @@ randomAlphanumeric = do
 
 -- Generate a random string of specified length
 randomString :: Int -> IO String
-randomString length = replicateM length randomAlphanumeric
+randomString charNum = replicateM charNum randomAlphanumeric
 
 -- Generate multiple random strings
 generateRandomStrings :: Int -> Int -> IO [String]
-generateRandomStrings count length = replicateM count (randomString length)
+generateRandomStrings count charNum = replicateM count (randomString charNum)
 
 -- Vote simulation function
 voteSimulation :: IO ()

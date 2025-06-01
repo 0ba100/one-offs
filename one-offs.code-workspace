@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "haskell/voting"
+		},
+		{
+			"path": "python"
+		},
+		{
+			"path": "rust"
+		}
+	],
+	"settings": {}
+}
