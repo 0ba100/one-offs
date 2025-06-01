@@ -1,106 +1,54 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Voting (main) where
+module Main (main) where
 
-import Control.Monad (replicateM)
+import Control.Monad (forM, forM_, replicateM)
+import Data.List (find)
 import System.Random (randomRIO)
 
--- Data types equivalent to Rust structs
-data Person = Person
-  { personName :: String,
-    personUuid :: String
-  }
-  deriving (Show, Eq)
+newtype UUID = UUID String deriving (Show, Eq)
 
-data Poll = Poll
-  { pollName :: String,
-    pollOptions :: [Option]
-  }
-  deriving (Show)
+makeUUID :: IO UUID
+makeUUID = UUID <$> randomString 10
 
-data Option = Option
-  { optionName :: Person,
-    optionVotes :: Int
-  }
-  deriving (Show)
+data Person = Person {personName :: String, personUuid :: UUID} deriving (Show, Eq)
 
-data Vote = Vote
-  { votePerson :: String,
-    voteOption :: String
-  }
-  deriving (Show)
+data Poll = Poll {pollName :: String, pollOptions :: [Option]} deriving (Show)
 
--- Generate a random alphanumeric character
+data Option = Option {optionPerson :: UUID, optionVotes :: Int} deriving (Show)
+
+data Vote = Vote {votePerson :: UUID, voteOption :: UUID} deriving (Show)
+
 randomAlphanumeric :: IO Char
-randomAlphanumeric = do
-  let chars = ['a' .. 'z'] ++ ['A' .. 'Z'] ++ ['0' .. '9']
-  idx <- randomRIO (0, length chars - 1)
-  return $ chars !! idx
+randomAlphanumeric = (charSelection !!) <$> randomRIO (0, length charSelection - 1)
+  where
+    charSelection = ['a' .. 'z'] ++ ['A' .. 'Z'] ++ ['0' .. '9']
 
--- Generate a random string of specified length
 randomString :: Int -> IO String
-randomString charNum = replicateM charNum randomAlphanumeric
+randomString n = replicateM n randomAlphanumeric
 
--- Generate multiple random strings
-generateRandomStrings :: Int -> Int -> IO [String]
-generateRandomStrings count charNum = replicateM count (randomString charNum)
+prettyPrintResults :: [Option] -> [Person] -> IO ()
+prettyPrintResults options runners =
+  forM_ options $ \option -> case find ((== optionPerson option) . personUuid) runners of
+    Just person -> putStrLn $ "  " ++ personName person ++ ": " ++ show (optionVotes option)
+    Nothing -> putStrLn $ "  Unknown candidate: " ++ show (optionPerson option)
 
--- Vote simulation function
-voteSimulation :: IO ()
+voteSimulation :: IO ([Option], [Person])
 voteSimulation = do
-  -- Create candidates
-  let candidateNames = ["John", "Jane", "Jim"]
-  candidates <-
-    mapM
-      ( \name -> do
-          uuid <- randomString 10
-          return $
-            Option
-              { optionName = Person {personName = name, personUuid = uuid},
-                optionVotes = 0
-              }
-      )
-      candidateNames
+  runners <- forM ["John", "Jane", "Jim"] $ \name -> Person name <$> makeUUID
 
-  -- Create voters
-  voterNames <- generateRandomStrings 100 10
-  voters <-
-    mapM
-      ( \name -> do
-          uuid <- randomString 10
-          return $ Person {personName = name, personUuid = uuid}
-      )
-      voterNames
+  voters <- replicateM 100000 $ Person <$> randomString 10 <*> makeUUID
 
-  -- Each voter picks a random vote
-  votes <-
-    mapM
-      ( \voter -> do
-          candidateIdx <- randomRIO (0, length candidates - 1)
-          let selectedCandidate = candidates !! candidateIdx
-          return $
-            Vote
-              { votePerson = personUuid voter,
-                voteOption = personUuid (optionName selectedCandidate)
-              }
-      )
-      voters
+  votes <- forM voters $ \voter -> do
+    selected <- (runners !!) <$> randomRIO (0, length runners - 1)
+    pure $ Vote (personUuid voter) (personUuid selected)
 
-  -- Print some results
-  putStrLn $ "Created " ++ show (length candidates) ++ " candidates"
-  putStrLn $ "Created " ++ show (length voters) ++ " voters"
-  putStrLn $ "Generated " ++ show (length votes) ++ " votes"
+  let countVotesFor uuid = length $ filter (== uuid) (map voteOption votes)
+  let candidates = map (\r -> Option (personUuid r) (countVotesFor (personUuid r))) runners
 
-  -- Print candidate names
-  putStrLn "Candidates:"
-  mapM_ (\candidate -> putStrLn $ "  " ++ personName (optionName candidate)) candidates
-
-  -- Print first few votes as example
-  putStrLn "First 5 votes:"
-  mapM_ (\vote -> putStrLn $ "  Voter " ++ take 8 (votePerson vote) ++ "... voted for " ++ take 8 (voteOption vote) ++ "...") (take 5 votes)
+  return (candidates, runners)
 
 main :: IO ()
 main = do
-  putStrLn "Running voting simulation..."
-  voteSimulation
-  putStrLn "Simulation complete!"
+  (results, runners) <- voteSimulation
+  prettyPrintResults results runners

@@ -1,3 +1,5 @@
 pub mod voting;
 
-fn main() {}
+fn main() {
+    voting::vote_simulation();
+}
