@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "haskell/functions"
+		},
+		{
+			"path": "multi-rust/parse_nmap"
 		}
 	],
 	"settings": {}
