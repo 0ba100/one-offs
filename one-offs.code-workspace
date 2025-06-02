@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "rust"
+		},
+		{
+			"path": "haskell/approval-voting"
 		}
 	],
 	"settings": {}
