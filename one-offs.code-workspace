@@ -14,6 +14,9 @@
 		},
 		{
 			"path": "haskell/approval-voting"
+		},
+		{
+			"path": "haskell/functions"
 		}
 	],
 	"settings": {}
