@@ -10,4 +10,6 @@ fn main() {
     // always sync after creation if possible
 
     // could use a UI if you wanted: e.g. dioxus/tauri/egui/etc.
+    // https://ankiweb.net/shared/info/2055492159
+    // https://openai.com/index/image-generation-api/
 }
