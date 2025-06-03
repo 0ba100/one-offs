@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "multi-rust/parse_nmap"
+		},
+		{
+			"path": "multi-rust/mnemonic-generator"
 		}
 	],
 	"settings": {}
