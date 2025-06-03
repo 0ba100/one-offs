@@ -4,9 +4,6 @@
 			"path": "."
 		},
 		{
-			"path": "haskell/voting"
-		},
-		{
 			"path": "python"
 		},
 		{
@@ -16,7 +13,7 @@
 			"path": "haskell/approval-voting"
 		},
 		{
-			"path": "haskell/functions"
+			"path": "multi-rust/compress-image"
 		},
 		{
 			"path": "multi-rust/parse_nmap"
