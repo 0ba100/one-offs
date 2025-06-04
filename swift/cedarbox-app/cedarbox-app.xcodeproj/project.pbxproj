@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		8BED6B812DF0EE3700689CC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BED6B6B2DF0EE3600689CC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BED6B722DF0EE3600689CC9;
+			remoteInfo = "cedarbox-app";
+		};
+		8BED6B8B2DF0EE3700689CC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BED6B6B2DF0EE3600689CC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BED6B722DF0EE3600689CC9;
+			remoteInfo = "cedarbox-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8BED6B732DF0EE3600689CC9 /* cedarbox-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cedarbox-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BED6B802DF0EE3700689CC9 /* cedarbox-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cedarbox-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BED6B8A2DF0EE3700689CC9 /* cedarbox-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cedarbox-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		8BED6B752DF0EE3600689CC9 /* cedarbox-app */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "cedarbox-app";
+			sourceTree = "<group>";
+		};
+		8BED6B832DF0EE3700689CC9 /* cedarbox-appTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "cedarbox-appTests";
+			sourceTree = "<group>";
+		};
+		8BED6B8D2DF0EE3700689CC9 /* cedarbox-appUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "cedarbox-appUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8BED6B702DF0EE3600689CC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BED6B7D2DF0EE3700689CC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BED6B872DF0EE3700689CC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8BED6B6A2DF0EE3600689CC9 = {
+			isa = PBXGroup;
+			children = (
+				8BED6B752DF0EE3600689CC9 /* cedarbox-app */,
+				8BED6B832DF0EE3700689CC9 /* cedarbox-appTests */,
+				8BED6B8D2DF0EE3700689CC9 /* cedarbox-appUITests */,
+				8BED6B742DF0EE3600689CC9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8BED6B742DF0EE3600689CC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BED6B732DF0EE3600689CC9 /* cedarbox-app.app */,
+				8BED6B802DF0EE3700689CC9 /* cedarbox-appTests.xctest */,
+				8BED6B8A2DF0EE3700689CC9 /* cedarbox-appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8BED6B722DF0EE3600689CC9 /* cedarbox-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BED6B942DF0EE3700689CC9 /* Build configuration list for PBXNativeTarget "cedarbox-app" */;
+			buildPhases = (
+				8BED6B6F2DF0EE3600689CC9 /* Sources */,
+				8BED6B702DF0EE3600689CC9 /* Frameworks */,
+				8BED6B712DF0EE3600689CC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8BED6B752DF0EE3600689CC9 /* cedarbox-app */,
+			);
+			name = "cedarbox-app";
+			packageProductDependencies = (
+			);
+			productName = "cedarbox-app";
+			productReference = 8BED6B732DF0EE3600689CC9 /* cedarbox-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8BED6B7F2DF0EE3700689CC9 /* cedarbox-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BED6B972DF0EE3700689CC9 /* Build configuration list for PBXNativeTarget "cedarbox-appTests" */;
+			buildPhases = (
+				8BED6B7C2DF0EE3700689CC9 /* Sources */,
+				8BED6B7D2DF0EE3700689CC9 /* Frameworks */,
+				8BED6B7E2DF0EE3700689CC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BED6B822DF0EE3700689CC9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8BED6B832DF0EE3700689CC9 /* cedarbox-appTests */,
+			);
+			name = "cedarbox-appTests";
+			packageProductDependencies = (
+			);
+			productName = "cedarbox-appTests";
+			productReference = 8BED6B802DF0EE3700689CC9 /* cedarbox-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8BED6B892DF0EE3700689CC9 /* cedarbox-appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BED6B9A2DF0EE3700689CC9 /* Build configuration list for PBXNativeTarget "cedarbox-appUITests" */;
+			buildPhases = (
+				8BED6B862DF0EE3700689CC9 /* Sources */,
+				8BED6B872DF0EE3700689CC9 /* Frameworks */,
+				8BED6B882DF0EE3700689CC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BED6B8C2DF0EE3700689CC9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8BED6B8D2DF0EE3700689CC9 /* cedarbox-appUITests */,
+			);
+			name = "cedarbox-appUITests";
+			packageProductDependencies = (
+			);
+			productName = "cedarbox-appUITests";
+			productReference = 8BED6B8A2DF0EE3700689CC9 /* cedarbox-appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8BED6B6B2DF0EE3600689CC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					8BED6B722DF0EE3600689CC9 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					8BED6B7F2DF0EE3700689CC9 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 8BED6B722DF0EE3600689CC9;
+					};
+					8BED6B892DF0EE3700689CC9 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 8BED6B722DF0EE3600689CC9;
+					};
+				};
+			};
+			buildConfigurationList = 8BED6B6E2DF0EE3600689CC9 /* Build configuration list for PBXProject "cedarbox-app" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8BED6B6A2DF0EE3600689CC9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8BED6B742DF0EE3600689CC9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8BED6B722DF0EE3600689CC9 /* cedarbox-app */,
+				8BED6B7F2DF0EE3700689CC9 /* cedarbox-appTests */,
+				8BED6B892DF0EE3700689CC9 /* cedarbox-appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8BED6B712DF0EE3600689CC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BED6B7E2DF0EE3700689CC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BED6B882DF0EE3700689CC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8BED6B6F2DF0EE3600689CC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BED6B7C2DF0EE3700689CC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BED6B862DF0EE3700689CC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BED6B822DF0EE3700689CC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BED6B722DF0EE3600689CC9 /* cedarbox-app */;
+			targetProxy = 8BED6B812DF0EE3700689CC9 /* PBXContainerItemProxy */;
+		};
+		8BED6B8C2DF0EE3700689CC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BED6B722DF0EE3600689CC9 /* cedarbox-app */;
+			targetProxy = 8BED6B8B2DF0EE3700689CC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8BED6B922DF0EE3700689CC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8BED6B932DF0EE3700689CC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8BED6B952DF0EE3700689CC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "example.cedarbox-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BED6B962DF0EE3700689CC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "example.cedarbox-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8BED6B982DF0EE3700689CC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "crewtracks.cedarbox-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cedarbox-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/cedarbox-app";
+			};
+			name = Debug;
+		};
+		8BED6B992DF0EE3700689CC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "crewtracks.cedarbox-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cedarbox-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/cedarbox-app";
+			};
+			name = Release;
+		};
+		8BED6B9B2DF0EE3700689CC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "crewtracks.cedarbox-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "cedarbox-app";
+			};
+			name = Debug;
+		};
+		8BED6B9C2DF0EE3700689CC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "crewtracks.cedarbox-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "cedarbox-app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8BED6B6E2DF0EE3600689CC9 /* Build configuration list for PBXProject "cedarbox-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BED6B922DF0EE3700689CC9 /* Debug */,
+				8BED6B932DF0EE3700689CC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BED6B942DF0EE3700689CC9 /* Build configuration list for PBXNativeTarget "cedarbox-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BED6B952DF0EE3700689CC9 /* Debug */,
+				8BED6B962DF0EE3700689CC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BED6B972DF0EE3700689CC9 /* Build configuration list for PBXNativeTarget "cedarbox-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BED6B982DF0EE3700689CC9 /* Debug */,
+				8BED6B992DF0EE3700689CC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BED6B9A2DF0EE3700689CC9 /* Build configuration list for PBXNativeTarget "cedarbox-appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BED6B9B2DF0EE3700689CC9 /* Debug */,
+				8BED6B9C2DF0EE3700689CC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8BED6B6B2DF0EE3600689CC9 /* Project object */;
+}
