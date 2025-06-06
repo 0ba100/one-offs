@@ -23,6 +23,7 @@ fn App() -> Element {
 #[component]
 pub fn Hero() -> Element {
     let img_description = use_signal(|| String::new());
+    let mut img_url: Signal<Option<String>> = use_signal(|| None);
 
     let generate_image = move |_: Event<MouseData>| async move {
         let body = ImagesBody { 
@@ -32,6 +33,8 @@ pub fn Hero() -> Element {
             response_format: None, 
             user: Some(String::from("mnemonics-generator-dev")),
         };
+        
+        // this is blocking rofl
         let auth = Auth::from_env()
             .map_err(|e| anyhow!("Failed to load auth: {}", e))
             .map(|auth| OpenAI::new(auth, "https://api.openai.com/v1"))
@@ -39,10 +42,12 @@ pub fn Hero() -> Element {
             .ok()
             .and_then(|r| r.data)
             .and_then(|d| d.first().map(|f| f.url.to_owned()));
+
+        img_url.set(auth);
     };
 
     rsx! {
-        div { class: "min-h-screen bg-gray-100 flex items-center justify-center",
+        div { class: "min-h-screen bg-gray-100 flex items-center text-black justify-center",
             div { class: "w-full max-w-lg bg-white rounded-lg shadow-md p-8",
                 h2 { class: "text-2xl font-bold mb-6 text-gray-800", "Mnemonic Generator" }
                 form { method: "POST", action: "#", class: "space-y-4",
@@ -123,7 +128,7 @@ pub fn Hero() -> Element {
                         }
                         div { class: "mt-4",
                             img {
-                                src: "",
+                                src: img_url,
                                 alt: "Generated image placeholder",
                                 class: "w-full h-auto border border-gray-300 rounded-md",
                                 id: "imagePreview",
