@@ -1,7 +1,12 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QFileDialog, QStatusBar, QScrollArea, QSlider
+import os
+from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QFileDialog, QStatusBar, QScrollArea, QSlider, QMessageBox
 from PyQt6.QtGui import QPixmap, QMouseEvent, QAction, QPainter, QPen, QBrush, QKeySequence
 from PyQt6.QtCore import Qt, QRect
+from PIL import Image
+from PyQt6.QtCore import QBuffer, QIODevice
+import io
+
 
 class ImageLociPainter(QMainWindow):
     def __init__(self):
@@ -40,6 +45,10 @@ class ImageLociPainter(QMainWindow):
         open_action.triggered.connect(self.open_image)
         file_menu.addAction(open_action)
 
+        save_action = QAction("&Save Image...", self)
+        save_action.triggered.connect(self.save_image)
+        file_menu.addAction(save_action)
+
         exit_action = QAction("&Exit", self)
         exit_action.triggered.connect(self.close)
         file_menu.addAction(exit_action)
@@ -70,6 +79,57 @@ class ImageLociPainter(QMainWindow):
         self.point_radius = value
         self.radius_label.setText(f" {value}px")
         self.update_image_with_drawings()
+
+    def save_image(self):
+        if not self.original_pixmap:
+            self.status_bar.showMessage("No image to save.", 3000)
+            return
+
+        drawn_pixmap = self.image_label.pixmap()
+        if not drawn_pixmap or drawn_pixmap.isNull():
+            self.status_bar.showMessage("No drawn image to save.", 3000)
+            return
+
+        if self.image_path:
+            base, ext = os.path.splitext(os.path.basename(self.image_path))
+            default_save_path = os.path.join(os.path.dirname(self.image_path), f"{base}_loci.png")
+        else:
+            default_save_path = "painted_image.png"
+
+        file_name, _ = QFileDialog.getSaveFileName(self, "Save Image", default_save_path, "PNG Files (*.png);;JPEG Files (*.jpg *.jpeg)")
+
+        if not file_name:
+            return
+
+        # Save the full-size original with drawings.
+        if not drawn_pixmap.save(file_name):
+            QMessageBox.warning(self, "Save Error", f"Failed to save image to {file_name}.")
+            return
+
+        # Save the compressed AVIF version.
+        try:
+            max_width = 500
+            if drawn_pixmap.width() > max_width:
+                scaled_pixmap = drawn_pixmap.scaledToWidth(max_width, Qt.TransformationMode.SmoothTransformation)
+            else:
+                scaled_pixmap = drawn_pixmap
+
+            base, _ = os.path.splitext(file_name)
+            avif_file_name = f"{base}_500w.avif"
+
+            qimage = scaled_pixmap.toImage()
+            buffer = QBuffer()
+            buffer.open(QIODevice.OpenMode.ReadWrite)
+            qimage.save(buffer, "PNG")
+
+            pil_img = Image.open(io.BytesIO(buffer.data()))
+            pil_img.save(avif_file_name, "AVIF", quality=50)
+
+            self.status_bar.showMessage(f"Saved to {file_name} and {avif_file_name}", 5000)
+
+        except Exception as e:
+            QMessageBox.warning(self, "Save Error", f"Failed to save AVIF image: {e}")
+            self.status_bar.showMessage(f"Saved {file_name}. AVIF save failed.", 5000)
 
     def open_image(self):
         file_name, _ = QFileDialog.getOpenFileName(self, "Open Image", "", "Image Files (*.png *.jpg *.jpeg *.bmp *.gif)")
