@@ -1,6 +1,6 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QFileDialog, QStatusBar, QScrollArea, QSlider
-from PyQt6.QtGui import QPixmap, QMouseEvent, QAction, QPainter, QPen, QBrush
+from PyQt6.QtGui import QPixmap, QMouseEvent, QAction, QPainter, QPen, QBrush, QKeySequence
 from PyQt6.QtCore import Qt, QRect
 
 class ImageLociPainter(QMainWindow):
@@ -43,6 +43,13 @@ class ImageLociPainter(QMainWindow):
         exit_action = QAction("&Exit", self)
         exit_action.triggered.connect(self.close)
         file_menu.addAction(exit_action)
+
+        # Edit menu for undo
+        edit_menu = menubar.addMenu("&Edit")
+        undo_action = QAction("&Undo", self)
+        undo_action.setShortcut(QKeySequence.StandardKey.Undo)
+        undo_action.triggered.connect(self.undo_last_point)
+        edit_menu.addAction(undo_action)
 
         # Toolbar for point size
         toolbar = self.addToolBar("Point Size")
@@ -128,6 +135,11 @@ class ImageLociPainter(QMainWindow):
             if 0 <= pos.x() < self.original_pixmap.width() and 0 <= pos.y() < self.original_pixmap.height():
                 self.points.append(pos)
                 self.update_image_with_drawings()
+
+    def undo_last_point(self):
+        if self.points:
+            self.points.pop()
+            self.update_image_with_drawings()
 
     def image_mouse_move(self, event: QMouseEvent):
         if self.original_pixmap and not self.original_pixmap.isNull():
