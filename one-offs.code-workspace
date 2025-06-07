@@ -19,6 +19,9 @@
 			"path": "multi-rust/parse_nmap"
 		},
 		{
+			"path": "multi-rust/cedarbox"
+		},
+		{
 			"path": "multi-rust/mnemonic-generator"
 		}
 	],
