@@ -1,7 +1,7 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QFileDialog, QStatusBar, QScrollArea
-from PyQt6.QtGui import QPixmap, QMouseEvent, QAction
-from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QPixmap, QMouseEvent, QAction, QPainter, QPen, QBrush
+from PyQt6.QtCore import Qt, QRect
 
 class ImageLociPainter(QMainWindow):
     def __init__(self):
@@ -13,9 +13,11 @@ class ImageLociPainter(QMainWindow):
         self.image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.image_label.setMouseTracking(True) # Enable mouse tracking on the label
         self.image_label.mouseMoveEvent = self.image_mouse_move
+        self.image_label.mousePressEvent = self.image_mouse_press
 
         self.original_pixmap = None # To store the original loaded pixmap
         self.image_path = None
+        self.points = []
 
         # Status bar for coordinates
         self.status_bar = QStatusBar()
@@ -50,18 +52,63 @@ class ImageLociPainter(QMainWindow):
             pixmap = QPixmap(file_name)
             if pixmap.isNull():
                 self.original_pixmap = None
+                self.points = []
                 self.image_label.setText("Failed to load image.")
                 self.image_label.setPixmap(QPixmap()) # Clear image
                 self.image_label.adjustSize()
             else:
                 self.original_pixmap = pixmap
+                self.points = []
                 self.display_image()
 
     def display_image(self):
         if self.original_pixmap:
-            self.image_label.setPixmap(self.original_pixmap)
+            self.update_image_with_drawings()
             self.image_label.adjustSize() # Resize label to pixmap
 
+    def update_image_with_drawings(self):
+        if not self.original_pixmap:
+            return
+
+        drawn_pixmap = self.original_pixmap.copy()
+        painter = QPainter(drawn_pixmap)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+
+        # Draw line connecting points
+        if len(self.points) > 1:
+            pen = QPen(Qt.GlobalColor.red, 2, Qt.PenStyle.SolidLine)
+            painter.setPen(pen)
+            painter.drawPolyline(self.points)
+
+        # Draw circles with numbers
+        radius = 10
+        font = painter.font()
+        font.setBold(True)
+        font.setPointSize(10)
+        painter.setFont(font)
+
+        for i, point in enumerate(self.points):
+            # Draw circle
+            painter.setPen(QPen(Qt.GlobalColor.red, 2))
+            painter.setBrush(QBrush(Qt.GlobalColor.yellow))
+            painter.drawEllipse(point, radius, radius)
+
+            # Draw number
+            painter.setPen(QPen(Qt.GlobalColor.black))
+            text_rect = QRect(int(point.x()) - radius, int(point.y()) - radius, 2 * radius, 2 * radius)
+            painter.drawText(text_rect, Qt.AlignmentFlag.AlignCenter, str(i + 1))
+
+        painter.end()
+        self.image_label.setPixmap(drawn_pixmap)
+
+    def image_mouse_press(self, event: QMouseEvent):
+        if event.button() == Qt.MouseButton.LeftButton and self.original_pixmap and not self.original_pixmap.isNull():
+            pos = event.position()
+
+            # Check if the mouse is within the bounds of the pixmap
+            if 0 <= pos.x() < self.original_pixmap.width() and 0 <= pos.y() < self.original_pixmap.height():
+                self.points.append(pos)
+                self.update_image_with_drawings()
 
     def image_mouse_move(self, event: QMouseEvent):
         if self.original_pixmap and not self.original_pixmap.isNull():
