@@ -1,5 +1,5 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QFileDialog, QStatusBar, QScrollArea
+from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QFileDialog, QStatusBar, QScrollArea, QSlider
 from PyQt6.QtGui import QPixmap, QMouseEvent, QAction, QPainter, QPen, QBrush
 from PyQt6.QtCore import Qt, QRect
 
@@ -18,6 +18,7 @@ class ImageLociPainter(QMainWindow):
         self.original_pixmap = None # To store the original loaded pixmap
         self.image_path = None
         self.points = []
+        self.point_radius = 10
 
         # Status bar for coordinates
         self.status_bar = QStatusBar()
@@ -43,7 +44,25 @@ class ImageLociPainter(QMainWindow):
         exit_action.triggered.connect(self.close)
         file_menu.addAction(exit_action)
 
+        # Toolbar for point size
+        toolbar = self.addToolBar("Point Size")
+        toolbar.addWidget(QLabel("Point Size:"))
+
+        self.radius_slider = QSlider(Qt.Orientation.Horizontal)
+        self.radius_slider.setRange(2, 50)
+        self.radius_slider.setValue(self.point_radius)
+        self.radius_slider.valueChanged.connect(self.set_radius)
+        toolbar.addWidget(self.radius_slider)
+
+        self.radius_label = QLabel(f" {self.point_radius}px")
+        toolbar.addWidget(self.radius_label)
+
         self.show()
+
+    def set_radius(self, value):
+        self.point_radius = value
+        self.radius_label.setText(f" {value}px")
+        self.update_image_with_drawings()
 
     def open_image(self):
         file_name, _ = QFileDialog.getOpenFileName(self, "Open Image", "", "Image Files (*.png *.jpg *.jpeg *.bmp *.gif)")
@@ -81,10 +100,10 @@ class ImageLociPainter(QMainWindow):
             painter.drawPolyline(self.points)
 
         # Draw circles with numbers
-        radius = 10
+        radius = self.point_radius
         font = painter.font()
         font.setBold(True)
-        font.setPointSize(10)
+        font.setPointSize(self.point_radius)
         painter.setFont(font)
 
         for i, point in enumerate(self.points):
