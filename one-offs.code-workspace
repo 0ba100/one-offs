@@ -23,6 +23,9 @@
 		},
 		{
 			"path": "multi-rust/mnemonic-generator"
+		},
+		{
+			"path": "kotlin/krules"
 		}
 	],
 	"settings": {}
